@@ -1,0 +1,42 @@
+DataBase:--->Table(RowColumn Structure)---->Schema:---->Values/Actual Data
+
+DDL (Data Defination Language):
+Defination:
+    Any command which we are using to do change/do structure changes we called it as DDL
+Commands:
+        Create: Database/Table/View 
+        Alter : 
+        Drop : 
+
+DML (Data Manupulation Language):
+Defination:
+    Any data level changes we made those command are called DML
+Commands:
+        	Insert 
+        	Update 
+        	Delete 
+
+DCL (Data Control Language):
+Defination:
+    DCL statements are used to manage user access and permissions in a database.
+Commands:
+  	GRANT: Give a permision to user
+  	REVOKE: Take back privilege granted from user
+  
+
+TCL (Transactional Contral Language):
+Defination:
+    TCL statements are used to manage transactions in a database.
+    Transactions ensure that a series of operations are either all successful or all fail, maintaining data consistency.
+Commands:
+    Commit: Commit command is used to save all the transactio to the database
+  	rollback: Is used to undo transation that have not already been saved
+  	savepoint: it is used to roll the transations bact to a certain period .(Kind of flag)
+
+
+DQL (Data Query Language):
+Defination:
+    DQL statements are used to retrieve data from a database.
+    They do not modify the database itself.
+Commands:
+    Select   
