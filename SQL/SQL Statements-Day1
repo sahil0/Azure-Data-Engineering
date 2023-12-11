@@ -34,7 +34,7 @@ Commands:
 	Rollback: Is used to undo transation that have not already been saved
 	Savepoint: it is used to roll the transations bact to a certain period .(Kind of flag)
 
-<kbd>⌘F</kbd>	RollBack will not work for  DDL command RollBack is only for DML
+Note:	RollBack will not work for  DDL command RollBack is only for DML
 	If you want to create a table and after creating a table if you want to rollback it will not work,
 	Even if u add START Transactions.DDL command by default has autocommit feature
 
@@ -46,14 +46,12 @@ Command:
 	Select
 
 
-
+```
 DROP | DELETE | TRUNCATE
 | :--- | ---: | :---:
 Its DDL  | Its DML | Its DDL
 Delete whole table along with its schema(structure is not maintained)  | Delete table data only structure and schema unchanged(delete Row base) | Delete table data,structure is maintained 
 RollBack is not possible bcoz its a DML  | Rollback is possible | RollBack is not possible bcoz its a DML
-
-
-
+```
 
 
