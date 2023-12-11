@@ -1,35 +1,58 @@
 DataBase:--->Table(RowColumn Structure)---->Schema:---->Values/Actual Data
 
 DDL (Data Defination Language):
+Defination :
 Any command which we are using to do change/do structure changes we called it as DDL
-	.Create: Table/View 
-	.Alter : 
-	.Drop : 
+Commands:
+	Create: Table/View 
+	Alter : 
+	Drop : 
+	Truncate:
 
 DML (Data Manupulation Language):
-Any data level changes we made those command are called DML
+Defination:
+	Any data level changes we made those command are called DML
+Commands:
 	Insert :
 	Update :
 	Delete :
 
 DCL (Data Control Language):
-DCL statements are used to manage user access and permissions in a database.
+Defination:
+	DCL statements are used to manage user access and permissions in a database.
+Commands:
 	GRANT: Give a permision to user
 	REVOKE: Take back privilege granted from user
   
 
 TCL (Transactional Contral Language):
-TCL statements are used to manage transactions in a database.
-Transactions ensure that a series of operations are either all successful or all fail, maintaining data consistency.
-    Commit: Commit command is used to save all the transactio to the database
-	rollback: Is used to undo transation that have not already been saved
-	savepoint: it is used to roll the transations bact to a certain period .(Kind of flag)
+Defination:
+	TCL statements are used to manage transactions in a database.
+	Transactions ensure that a series of operations are either all successful or all fail, maintaining data consistency.
+Commands:
+	Commit: Commit command is used to save all the transactio to the database
+	Rollback: Is used to undo transation that have not already been saved
+	Savepoint: it is used to roll the transations bact to a certain period .(Kind of flag)
 
+<kbd>⌘F</kbd>	RollBack will not work for  DDL command RollBack is only for DML
+	If you want to create a table and after creating a table if you want to rollback it will not work,
+	Even if u add START Transactions.DDL command by default has autocommit feature
 
 DQL (Data Query Language):
-DQL statements are used to retrieve data from a database.
-They do not modify the database itself.
-    Select   
+Defination:
+	DQL statements are used to retrieve data from a database.
+	They do not modify the database itself.
+Command:   
+	Select
+
+
+
+DROP | DELETE | TRUNCATE
+| :--- | ---: | :---:
+Its DDL  | Its DML | Its DDL
+Delete whole table along with its schema(structure is not maintained)  | Delete table data only structure and schema unchanged(delete Row base) | Delete table data,structure is maintained 
+RollBack is not possible bcoz its a DML  | Rollback is possible | RollBack is not possible bcoz its a DML
+
 
 
 
