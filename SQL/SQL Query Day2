@@ -1,0 +1,144 @@
+Create database class2_db;
+
+use class2_db;
+
+create table if not exists employee(
+    id int,
+    name VARCHAR(50),
+    address VARCHAR(50),
+    city VARCHAR(50)
+);
+
+insert into employee values(1, 'Sahil', 'SSSS', 'PUNE');
+
+select * from employee;
+
+--- add new column named DOB in the TABLE
+alter table employee add DOB date;
+
+select * from employee;
+set SQL_SAFE_UPDATES=0
+----
+update employee set DOB='2022-12-01' where id=1
+
+--- modify existing column in a TABLE or change datatype of name column or increase lenght of name column
+alter table employee modify column name varchar(80);
+--- delete existing column from given TABLE or remove city column from employee table
+alter table employee drop column city;
+--- rename the column name to full_name
+alter table employee rename column name to Full_Name
+DROP TABLE employee
+
+-------------------------------------------------CHECK CONSTRAINT--------------------------------------------
+
+
+create table if not exists employee(
+    id int NOT NULL,
+    name VARCHAR(50) NULL,
+    age int NOT NULL,
+    hiring_date date,
+    salary int,
+    city varchar(50),
+    check (age>18)
+);
+select * from employee;
+
+insert into employee values(1,'Shashank', 24, '2021-08-10', 10000, 'Lucknow');
+
+insert into employee values(2,'Rahul', 16, '2021-08-10', 20000, 'Khajuraho');     -----(HERE WE WILL GET ERROR BCOZ WE APPLIED CEHCK)
+
+insert into employee values(3,'Sahil', 22, '2021-08-11', 11000, 'Banaglore');
+
+insert into employee values(5,'Amit', 25, '2021-08-11', 12000, 'Noida');
+
+insert into employee values(1,'Puneet', 26, '2021-08-12', 50000, 'Gurgaon');
+
+
+-------------------------------------------------PRIMARY KEY CONSTRAINT--------------------------------------------
+Create table persons
+(
+    id int, 
+    name varchar(50), 
+    age int,
+	--constraint pk Primary Key (id) 
+    Primary Key (id) 
+);
+
+insert into persons values(1,'Shashank',29);
+select * from persons
+--- Try to insert duplicate value for primary key COLUMN
+insert into persons values(2,'Shashank',29);
+
+--- Try to insert null value for primary key COLUMN
+insert into persons values(null,'Rahul',28);
+
+
+
+--- To check difference between Primary Key and Unique
+alter table persons add constraint age_unq UNIQUE(age);
+
+
+
+
+-------------------------------------------------Foreign KEY CONSTRAINT--------------------------------------------
+
+create table customer
+(
+    cust_id int,
+    name VARCHAR(50), 
+    age int,
+    constraint pk Primary Key (cust_id) 
+);
+
+create table orders
+(
+    order_id int,
+    order_num int,
+    customer_id int,
+    constraint pk Primary Key (order_id),
+    constraint fk Foreign Key (customer_id) REFERENCES customer(cust_id)
+);
+
+desc orders
+
+
+
+-------------------------------------------------UNIQUE CONSTRAINT AND DEFAULT CONSTRAINT--------------------------------------------
+
+create table if not exists employee(
+    id int,
+    name VARCHAR(50) ,
+    age int ,
+    hiring_date date,
+    salary int,
+    city varchar(50) NOT NULL DEFAULT 'PUNE',
+    UNIQUE(id) 
+);
+-------------Insert First Record
+
+insert into employee values(1, 'Shashank', 'RJPM', '2021-08-09');
+
+-------------Insert Record with same id to check UNIQUE column 
+
+insert into employee values(1, 'Shashank', 'RJPM', '2021-08-09');
+
+---------To check if we are getting default value for city if we dont pass any value-------
+
+insert into employee (id, name, age, hiring_date, salary) values(1,'Shashank',22 ,'2021-08-09',2000);
+
+
+desc employee
+---------------add unique integrity constraint on id COLUMN USING ALTER----------------------
+
+alter table employee add constraint id_unique UNIQUE(id);
+select * from employee
+
+insert into employee values(null, 'Shashank',22 ,'2021-08-09',2000,'pune');
+
+--- drop constraint from existing TABLE
+alter table employee drop constraint id_unique;
+
+insert into employee values(1, 'Shashank', 'RJPM', '2021-08-09');
+
+
+
