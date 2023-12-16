@@ -1,0 +1,120 @@
+----------------------Command to create DATABASE----------------------
+Create DATABASE Employee;
+
+----------------------To list down all the databases----------------------
+Show Databases;
+-------------------------
+use onpremazure;
+use employee
+----------------------Command to drop a DATABASE----------------------
+Drop DATABASE Test;
+
+----------------------Go inside the particular DATABASE----------------------
+use employee
+----------------------  Creating Table ----------------------
+CREATE table Training(
+Start_Date   DATE,
+Course_Code	INT,
+Employee_ID	INT NOT NULL,
+Course_Name	VARCHAR(30),
+Cost INT,
+Supplier VARCHAR(30)
+);
+--------------------------
+DROP TABLE Training
+----- ----------------------
+Show tables;
+------------To see Detail Structure of Table -------------
+describe Training  
+desc Training
+---------------------ADD COLUMN---------------------------
+ALTER TABLE Training ADD COLUMN EmployeeName Varchar(30);
+----------------------DROP COLUMN--------------------------
+ALTER TABLE Training DROP COLUMN Supplier;
+----------------------RENAME COLUMN----------------------
+ALTER TABLE Training Rename column Employee_ID TO EmployeeID;
+----------------------CHANGE DATA TYPE OF COLUMN---------------------
+ALTER TABLE Training MODIFY COLUMN Cost DECIMAL(10,2); 
+
+
+--------------------DML--------------------
+
+INSERT INTO Training VALUES (
+'2023-03-31',1,1,'CommunicationWorkshop',1300,'CommunicationExpert')
+INSERT INTO Training VALUES (
+'2023-03-20',2,1,'CommunicationWorkshop',1600,'CommunicationExpert')
+BEGIN TRAN;
+
+START TRANSACTION;
+INSERT INTO Training VALUES (
+'2023-03-20',4,30,'CESS',1600,'CET');
+commit
+START TRANSACTION;
+UPDATE Training SET Course_Name='CW' WHERE EmployeeID=27
+COMMIT
+ROLLBACK;
+
+------------------savepoint-------------
+START TRANSACTION;
+update Training set Course_Name='CWP' where EmployeeID=26 ;
+
+
+SAVEPOINT before_update;
+INSERT INTO Training VALUES (
+'2023-03-21',4,31,'OOP',1600,'NN');
+
+
+ROLLBACK TO SAVEPOINT before_update;
+INSERT INTO Training VALUES (
+'2023-03-22',4,32,'OOPs',1600,'NNN');
+
+
+-- Other SQL statements
+COMMIT;
+
+
+UPDATE Training SET Course_Name='CW' WHERE EmployeeID=27
+
+DELETE FROM Training WHERE Course_Code=1
+
+
+
+--- DQL-- 
+select * from Training
+
+
+SELECT * FROM Training
+START TRANSACTION;  
+SAVEPOINT INITIAL;
+INSERT INTO Training VALUES ('2023-03-22',10,54,'bb',2000,'SaurabhSingh')
+SELECT * FROM Training 
+SAVEPOINT INSERTS;
+UPDATE Training SET EmployeeName = 'MaheshKuwar' WHERE EmployeeID =2; 
+SAVEPOINT UPD;
+TRUNCATE TABLE Training ;
+ROLLBACK TO INSERTS;  
+commit
+
+
+TRUNCATE TABLE Training;
+
+
+
+--- Example for Integrity Constraints
+Create table if not exists employee_with_constraints
+(
+    id int NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    salary DOUBLE,
+    hiring_date DATE DEFAULT '2021-01-01',
+    UNIQUE (id),
+    CHECK (salary > 1000)
+);
+
+
+
+Note:
+set AUTOCOMMIT=0       [By default Mysql Saves the changes /commit the changes  0 means ON 1 OFF]
+
+------------IN Case IF Issue While runing The update ---------------
+SET SQL_SAFE_UPDATES=0
