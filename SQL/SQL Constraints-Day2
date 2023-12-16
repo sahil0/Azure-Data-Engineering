@@ -1,0 +1,30 @@
+SQL Constraints (Restrictions) :
+            In order to restrict certain records to table we have constraints.
+
+1.Primary Key 
+      Rules: No Duplicate,No NULLS 
+      Def'n: It's a unique identifier in a table which have no dublicates and null values
+                  EX:Adherenumber
+
+
+2.Foreign Key  
+    Rules:   Have Nulls ,Have Dublicates
+    Def'n:   Its a key in which we are refering to primary key column from another table.
+             Its always better to take one tables primary key as a reference in another 
+             table ,So this becomes foreignkey.Establishes a relationship between two tables.
+
+
+3.Unique Key  
+          Rule:  Should not have dublicates, but null are acceptable ,Its a optional 
+          Def'n: Its exactly same as primary key it will not have dublicates but you can have null values 
+                EX:PhoneNumber its optional if you gave but should be unique
+
+
+4.Check 
+        Def'n:  Applying some conditions to the columns is called check constraint
+				        Ex. Age>18 FOR AMAZONE ACC
+				
+5. DEFAULT 
+        Def'n:  Set a defult value if no value is specified/ user has not put anything we have default
+
+6.Not NULL
