@@ -1,11 +1,11 @@
-							SQL order of execution
-						 		1.from
-								2.where 
-								3.groupby
-								4.having 
-								5.select
-								6.orderby
-								7.limit
+						SQL order of execution
+							1.from
+							2.where 
+							3.groupby
+							4.having 
+							5.select
+							6.orderby
+							7.limit
 
 -------------------------------------------------------------------------------------------------------------------------------
 
