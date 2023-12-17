@@ -1,0 +1,54 @@
+
+# Aggregate function :
+                count(),
+                min(),
+                max(),
+                avg(),
+                sum()
+
+# Clause : 
+                GROUPBY,
+                OrderBy,
+                Having,
+                Where
+
+
+
+Aggregate Function and Clause:
+	1.	If you have added  or used any aggregated function along with some other column it is must that
+		you have to write GROUPBY that column other wise get wrong result
+		ex.select year,count(*) from cardata group by year 
+		
+    2. OrderBy always comes in the end after groupby
+	3. When we have groupby or orderby in that case Where Clause can only works with existing columns.
+	  If want to perform some thing with the new aggregated function or aggregated columns 
+	  insted of 'where'  we have to use 'Having' clause after groupby.
+	4.Having Is just a child of group by
+	
+WHERE VS Having
+
+      Where clause is use to filter the actual columns present in the tables whereas,the Having clause is 
+      used to filter the aggregated columns i.e(count(*),min(),max()) present in the tale .
+      Having clause can come only if we have used the groupby ,can not use having clause alone.
+
+
+
+
+
+
+# Arithmatic operators ->  + , - , * , / , %(Modulus)
+
+# Conditional Operators ->    < , > , <= , >= 
+
+# Logical Operator -> AND, OR, NOT 
+
+# Like Operator
+		use LIKE operation in where clause mostly,kind of patter matching we use this
+		%    [ Zero, one or more than one characters matching  ]
+		-    [ only one character]
+
+
+# Alias-> as  (To rename or give temporary name to columns)
+
+
+
