@@ -45,5 +45,32 @@ FROM STATION
 WHERE CITY REGEXP '[aeiouAEIOU]$'
 
 ```
+Weather Observation Station 8:
 
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+```
+
+select distinct(CITY) from STATION 
+WHERE CITY REGEXP '^[aeiouAEIOU]' AND CITY REGEXP '[aeiouAEIOU]$';
+```
+
+Weather Observation Station 9:
+
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
+
+```
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE CITY NOT RLIKE '^[aeiouAEIOU].*$'
+```
+Weather Observation Station 10:
+
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+
+```
+SELECT DISTINCT CITY FROM STATION
+WHERE CITY NOT RLIKE '[aeiouAEIOU]$'
+```
 
