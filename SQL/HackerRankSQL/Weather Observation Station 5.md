@@ -73,4 +73,8 @@ Query the list of CITY names from STATION that do not end with vowels. Your resu
 SELECT DISTINCT CITY FROM STATION
 WHERE CITY NOT RLIKE '[aeiouAEIOU]$'
 ```
-
+OR
+```
+SELECT DISTINCT CITY FROM STATION
+WHERE CITY NOT REGEXP  '[aeiouAEIOU]$'
+```
