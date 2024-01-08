@@ -2,7 +2,8 @@
 
 
 
-`WITH RankedCities AS (
+```
+WITH RankedCities AS (
     SELECT 
         CITY,
         LENGTH(CITY) AS CityLength,
@@ -13,4 +14,5 @@
 )
 SELECT CITY, CityLength
 FROM RankedCities
-WHERE CityRankAsc = 1 OR CityRankDesc=1`
+WHERE CityRankAsc = 1 OR CityRankDesc=1
+```
