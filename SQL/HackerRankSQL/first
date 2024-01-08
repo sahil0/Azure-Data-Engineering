@@ -1,0 +1,13 @@
+
+WITH RankedCities AS (
+    SELECT 
+        CITY,
+        LENGTH(CITY) AS CityLength,
+        ROW_NUMBER() OVER (ORDER BY LENGTH(CITY), CITY) AS CityRankAsc,
+        ROW_NUMBER() OVER (ORDER BY LENGTH(CITY) DESC, CITY) AS CityRankDesc
+
+    FROM STATION
+)
+SELECT CITY, CityLength
+FROM RankedCities
+WHERE CityRankAsc = 1 OR CityRankDesc=1
