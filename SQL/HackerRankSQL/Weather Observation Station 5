@@ -1,3 +1,4 @@
+![Weather Observation Station 5](https://github.com/sahil0/Azure-Data-Engineering/assets/22682814/46d768ac-5e74-4a5d-a5f9-d53f547809c5)
 
 WITH RankedCities AS (
     SELECT 
