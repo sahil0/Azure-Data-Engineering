@@ -22,6 +22,7 @@ select floor(avg(population)) from CITY
 ```
 select sum(population) from CITY where COUNTRYCODE='JPN'
 ```
+## Population Density Difference
 
 > Query the difference between the maximum and minimum populations in CITY.
 ```
