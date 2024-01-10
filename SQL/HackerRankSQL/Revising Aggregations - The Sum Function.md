@@ -11,14 +11,20 @@ select sum(population) from CITY where District='California'
 
 Average Population:
 
-Query the average population for all cities in CITY, rounded down to the nearest integer.
+>. Query the average population for all cities in CITY, rounded down to the nearest integer.
 
 
 ```
 select floor(avg(population)) from CITY
 ```
 
--- Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+>. Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
 ```
 select sum(population) from CITY where COUNTRYCODE='JPN'
+```
+
+> Query the difference between the maximum and minimum populations in CITY.
+```
+select max(population) - min(population) from CITY
+
 ```
