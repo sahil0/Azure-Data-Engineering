@@ -66,13 +66,18 @@ LAG(temperature,1) OVER (ORDER BY recordDate)  AS PREVIOUSDAY_TEMP
 from Weather
 ),cte2 AS(
 SELECT
-CASE 
-    WHEN recordDate<>PREVIOUS_DAY AND PREVIOUS_DAY IS NOT NULL 
-    AND  PREVIOUSDAY_TEMP < temperature THEN id 
-    END AS id
+*
 from CTE
+WHERE DATEDIFF(recordDate,PREVIOUS_DAY)=1
 )
-SELECT DISTINCT id from cte2 where id IS NOT NULL
+SELECT DISTINCT id from cte2 where 
+PREVIOUSDAY_TEMP < temperature
+
+ ------------# WITH SELF JOIN
+select w1.id
+from Weather w1, Weather w2
+where w1.Temperature > w2.Temperature
+and datediff(w1.recordDate, w2.recordDate) = 1
 
 
     
