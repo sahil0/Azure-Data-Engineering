@@ -1,10 +1,3 @@
-1934. Confirmation Rate
-Solved
-Medium
-Topics
-Companies
-SQL Schema
-Pandas Schema
 Table: Signups
 
 +----------------+----------+
